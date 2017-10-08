@@ -1,40 +1,11 @@
-
-
-body {
-    background: white;
-    width: 70%;
-    margin: 0 auto;
-    padding: 10px;
-    border: 2px solid #321fd4;
-    margin-top: 66px;
-   
-   }
-h1 {
-    text-align: center;
-}
-td {
-    height: 260px;
-     width: 180px;
- border: 2px solid red;
+#output {
+    font-size: 18px;
 }
 
-
-
-
-table {
-    cursor: pointer;
-    border-collapse: separate;
-    border-spacing: 40px 50px;
-    margin: 0 auto;
-    
+.clubs, .spades {
+    color: black;
 }
 
-.ng {
-    background: blue;
-    color: white;
+.hearts, .diams {
+    color: red;
 }
-
-button{
-    text-align: center; 
-}
-

@@ -1,0 +1,46 @@
+//make a win and lose variable
+make a variable for current round and round result
+make a stand , hit variable
+maybe a surrender variable
+player input variable
+
+ //   player hand will have an array such as [0,0,0,0,0]
+  //  Dealer hand will also have an array [0,0,0,0,0]
+    card value array []
+  //  Ace = 1 or 11
+  //  cards 2-9 = 2-9
+  //  J,Q,K = 10
+  // Deck of cards = 52 total cards = new array (52)
+
+   // The game is to have a total of 21 or close to 21 in the players hand with out going over.
+   // player must choose to either 'hit' (take another card) or 'stand' (stop taking cards) until they either hit 21 or bust.
+
+   // Actions 
+    // dealing card from the deck
+     //adding card to player's hand
+    // enable player to hit
+    // enable player to stand
+    // begin and end rounds
+    // shuffling the deck
+    
+
+    //player is given 2 cards
+    //dealer dealt 1 card face up and 1 card face down
+    //dealer or player > 21 = busted
+   // if both player and dealer have an ACE, if paired with 4 it will have a value of 1 (soft 15)
+   // If reciveing a value that will bust with an ACE card it will be a hard hand (anything above 10)
+
+   // if Players first 2 cards has a total of 17-21 on the first two cards , enable stand
+   // if players first 2 cards has a total of 2-16 enable hit
+
+   // after the dealers turn we compare hands
+
+     //whoever is closer to 21 wins
+    // if both values are equal between the dealer and player its a PUSH
+    // if both the player and dealer have 21, also a PUSH
+
+     // read.me draft
+        // about project
+        // screenshots
+        // what code languages used ( html, csss ,js...)
+        // git repo
