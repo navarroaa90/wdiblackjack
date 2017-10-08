@@ -8,10 +8,20 @@ var output= document.getElementById("output");
 for (s in suits) {
     
     var suit = suits[s][0].toUpperCase();
-// declaring a variable for background and using ternary for rules of changing colors.
+// declaring a variable for background and using ternary for rules of changing colors. If suit is S or C then we apply black. Else is red.
     var bColor = (suit === "S" || suit == "C") ? "black" : "red";
     for (n in numb) {
-        output.innerHTML += "<span style='color:" + bColor + "'>&" + suits[s] + ";" + numb[n] + "</span> ";
+      //  output.innerHTML += "<span style='color:" + bColor + "'>&" + suits[s] + ";" + numb[n] + "</span> ";
+      //
+     var cardValue =(n>9) ? 10 : parseInt(n)+1
+      var card = {
+          suit:suit,
+          icon:suits[s],
+          cardnum:numb[n],
+          cardvalue:cardValue
+      }
+      cards.push(card);
     }
 }
+     console.log(cards);
 var randomNum = Math.floor(Math.random()*52) +1;
