@@ -7,9 +7,14 @@
 
 
 var cards = [];
+var playersCard = [];
+var dealersCard = [];
+var cardCount = 0;
 var suits = ["spades", "hearts", "clubs", "diams"];
 var numb = ["A", "2", "3", "4", "5", "6", "7", "8", "9","10", "J","Q", "K"];
-var output= document.getElementById("output");
+var output = document.getElementById("output");
+var dealerHolder = document.getElementById("dealerHolder");
+var playerHolder = document.getElementById("playerHolder");
 
 // event listener
 
@@ -38,8 +43,45 @@ for (s in suits) {
      console.log(cards);
 // Functions
 // random number generator for the deck
-function startGame() {
-var randomNum = Math.floor(Math.random()*52);
-output.innerHTML += "<span style='color:" + cards[randomNum].bColor + "'>&" + cards[randomNum].icon + ";" + cards[randomNum].cardnum + "</span>  ";
 
+
+
+function startGame() {
+    shuffleDeck(cards);
+    dealNew();
+    outputCard();
+}
+// dealing new cards
+function dealNew() {
+    playerCard = [];
+    dealerCard = [];
+    dealerHolder.innerHTML = "";
+    playerHolder.innerHTML = "";
+    // 
+    for(x=0; x<2;x++) {
+        dealerCard.push(cards[cardCount]);
+    // moves on to the next card
+        cardCount++
+        playerCard.push(cards[cardCount]);
+        cardCount++
+    }
+    console.log(dealerCard);
+    console.log(playerCard);
+}
+
+
+function shuffleDeck(array) {
+for(var i = array.length -1;i>0;i--){
+    var j= Math.floor(Math.random() * (i+1));
+    var temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+    
+}
+return array;
+}
+// displays card
+function outputCard() {
+    output.innerHTML += "<span style='color:" + cards[cardCount].bColor + "'>" + cards[cardCount].cardnum + "&" + cards[cardCount].icon + ";</span>  ";
+    
 }

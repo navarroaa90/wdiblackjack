@@ -4,6 +4,12 @@ make a stand , hit variable
 maybe a surrender variable
 player input variable
 
+
+
+
+
+
+
  //   player hand will have an array such as [0,0,0,0,0]
   //  Dealer hand will also have an array [0,0,0,0,0]
     card value array []
@@ -11,7 +17,23 @@ player input variable
   //  cards 2-9 = 2-9
   //  J,Q,K = 10
   // Deck of cards = 52 total cards = new array (52)
+var deck =
+  obj {
+    suit: heart
+    value: 11
+  }
 
+   
+   var shuffled = newArray(52)
+   deck.forEach(function) (card) {
+     shuffled[randNum] = card
+   }  
+   
+   
+   
+   
+   
+   
    // The game is to have a total of 21 or close to 21 in the players hand with out going over.
    // player must choose to either 'hit' (take another card) or 'stand' (stop taking cards) until they either hit 21 or bust.
 
