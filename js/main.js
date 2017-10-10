@@ -49,7 +49,7 @@ for (s in suits) {
 function startGame() {
     shuffleDeck(cards);
     dealNew();
-    outputCard();
+   
 }
 // dealing new cards
 function dealNew() {
@@ -60,15 +60,21 @@ function dealNew() {
     // 
     for(x=0; x<2;x++) {
         dealerCard.push(cards[cardCount]);
+        dealerHolder.innerHTML += cardOutput(cardCount);
     // moves on to the next card
         cardCount++
         playerCard.push(cards[cardCount]);
+        playerHolder.innerHTML += cardOutput(cardCount);
         cardCount++
     }
     console.log(dealerCard);
     console.log(playerCard);
 }
 
+function cardOutput(n) {
+    return '<div class="icard clubs">  <div class= "top-card suit">5<br></div> <div class="content-card suit"></div> <div class="bottom-card suit">5<br> </div> </div>'
+
+}
 
 function shuffleDeck(array) {
 for(var i = array.length -1;i>0;i--){
