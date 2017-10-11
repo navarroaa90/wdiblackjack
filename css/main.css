@@ -1,13 +1,41 @@
+
+body{
+    border: 1px solid red;
+}
 #output {
     font-size: 30px;
 }
 
+#btndeal, #myactions  {
+display: none;
+}
+
+.btn {
+    border-radius: 5px;
+    padding:8px 20px;
+    color: white;
+    display: inline-block;
+    text-align: center;
+    text-shadow: 1px 1px #000000;
+    font: normal 700 24px/1 "calibri", sans-serif;
+}
 .clubs, .spades {
     color: black;
 }
 
 .hearts, .diams {
     color: red;
+}
+
+
+#cover {
+    height: 160px;
+    width: 120px;
+    background-color: red;
+    border-radius:10px;
+    position: absolute;
+    border: 1px solid black;
+    padding: 3px;
 }
 
 .icard {
@@ -20,6 +48,7 @@
     position: absolute;
     left: 100px;
     display:inline-block;
+    font-family: 'lato';
 }
 
 .hearts .suit::after {
@@ -57,3 +86,42 @@
     bottom: 2px;
     transform: rotate(-180deg);
   }
+
+  #dealerHolder, #playerHolder {
+      height: 180px;
+      width: 500px;
+  }
+
+  #message {
+      height: 70px;
+      font-size: 30px;
+      text-align: center;
+  }
+
+  #btnhold{
+      background-color: green;
+
+  }
+
+  #btnhit {
+      background-color: red;
+ }
+
+ #maxbet {
+     background-color: red;
+ }
+
+ #btndouble {
+     background-color: blue;
+ }
+#startbtn {
+    background-color: black;
+}
+
+#btndeal{
+    background-color: green;
+}
+
+.total {
+    font-size: 30px;
+}

@@ -10,19 +10,43 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body >
-    <div id= "message">Press Start!</div>
-    <div id= "start">
-        <button id="startbtn" type="button" onclick="startGame()">Start Game</button>
-    </div>
-    <div id="output">
-      Dealer's Hand:  <div id="dealerHolder"></div>
-      Player's Hand  <div id="playerHolder"></div>
+    <div>
+        <div><h1>Black Jack</h1>
+            <button id="startbtn" class= "btn" type="button" onclick="startGame()">Start Game</button>
+            </div>
+        <div class= "total"> Total $<span id="dollars">100</span></div>
+        <div>Bet Amount $<input type = "number" id="mybet" value="5" min= "1" max="100"><button id = "maxbet" type="button" onclick="maxbet()" 
+            class="btn">Max Bet</button>
+            <div>
+             <button id="btndeal" type="button" onclick="dealNew()" class="btn">Deal</button>
+             </div>
+        </div>
+        </div>
+        </div>
+        <div id= "message">Press Start!</div>
+         <div id= "start">
         
+        <div id="output">
+      Dealer's Hand: <span id="dValue"></span>
+       <div id="dealerHolder"></div>
+      Player's Hand: <span id="pValue"></span>
+       <div id="playerHolder"></div>
+       <div id="myactions">
+           <button id="btnhold" type="button" onClick="cardAction('hold')" 
+           class="btn">Hold</button>
+           <button id="btnhit" type="button" onClick="cardAction('hit')" 
+           class="btn">Hit</button>
+           <button id="btndouble" type="button" onClick="cardAction('double')" 
+           class="btn">Double</button>
+       </div>
+      
      </div>
 
      <div class "icard">
 
      </div>
+
+    </div>
      
  <script src="js/main.js"></script>
 </body>
