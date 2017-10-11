@@ -23,9 +23,13 @@ var dealerHolder = document.getElementById("dealerHolder");
 var playerHolder = document.getElementById("playerHolder");
 var pValue = document.getElementById("pValue");
 var dValue = document.getElementById("dValue");
-
+var dollarValue= document.getElementById("dollars");
 // event listener
-
+document.getElementById('mybet').onchange = function () {
+    if(this.value < 0) {this.value = 0;}
+    if (this.value > mydollars){this.value=mydollars;}
+    message.innerHTML="bet changed to $"+this.value;
+}
 
 
 // loop for cards. s is the index. allows us to loop through the values and attach them to suits
@@ -62,7 +66,8 @@ function startGame() {
 }
 // dealing new cards
 function dealNew() {
-    playerCard = [];
+    dValue.innerHTML = "?";
+      playerCard = [];
     dealerCard = [];
     dealerHolder.innerHTML = "";
     playerHolder.innerHTML = "";
@@ -74,11 +79,25 @@ message.innerHTML = "Get up to 21 and beat the dealer to win.<br>Current bet is 
 document.getElementById('mybet').disabled = true;
 document.getElementById('maxbet').disabled = true;
 deal();
-    
+} 
+
+function redeal(){
+    cardCount++;
+   if (cardCount >40) {
+    console.log("NEW DECK ");
+    shuffleDeck(cards);
+    cardCount = 0;
+    message.innerHTML = "New Shuffle";
+   }
+}
+
+
+
     
 function deal(){
-    console.log(cards);
     //card count reshuffle
+
+
     for(x=0; x<2;x++) {
         dealerCard.push(cards[cardCount]);
         dealerHolder.innerHTML += cardOutput(cardCount,x);
@@ -87,17 +106,16 @@ function deal(){
         if(x==0) {
             dealerHolder.innerHTML +='<div id= "cover" style="left:100px"></div>'
         }
-        cardCount++
+        redeal();
         playerCard.push(cards[cardCount]);
         playerHolder.innerHTML += cardOutput(cardCount,x);
-        cardCount++
+        redeal();
     }
     
     pValue.innerHTML = checktotal(playerCard);
-    console.log(dealerCard);
-    console.log(playerCard);
+    
 }
-}
+
 
 
 function cardOutput(n,x) {
@@ -105,6 +123,11 @@ function cardOutput(n,x) {
     return '<div class="icard ' + cards[n].icon + '" style="left:' + hpos + 'px;">  <div class="top-card suit">' + cards[n].cardnum + '<br></div>  <div class="content-card suit"></div>  <div class="bottom-card suit">' + cards[n].cardnum +
       '<br></div> </div>';
 
+}
+
+function maxbet() {
+    document.getElementById('mybet').value = mydollars;
+    message.innerHTML = "Bet changed to $"+mydollars;
 }
 
 function cardAction(a){
@@ -117,13 +140,22 @@ function cardAction(a){
             playend(); //playout and calculate
             break;
         case 'double':
-            //double current bet remove value from my dollars
-             playucard(); // add new card to players hand
-            playend(); //playout and calculate
-            break;
-            default:
-            console.log('done');
-            playend(); //playout and calculate
+        var betvalue = parseInt(document.getElementById('mybet').value);
+        if((mydollars - betvalue)<0) {
+            betvalue = betvalue + mydollars;
+            mydollars = 0;
+        }else {
+            mydollar=mydollars - betvalue;
+            betvalue=betvalue*2;
+        }
+        document.getElementById('dollars').innerHTML = mydollars;
+        document.getElementById('mybet').value = betvalue;
+        
+         playucard(); // add new card to players hand
+        playend(); //playout and calculate
+        break;
+        default:
+         playend(); //playout and calculate
             
     }
 }
@@ -131,7 +163,7 @@ function cardAction(a){
 function playucard() {
     playerCard.push(cards[cardCount]);
     playerHolder.innerHTML += cardOutput(cardCount,(playerCard.length -1));
-    cardCount++;
+    redeal();
     var rValu = checktotal(playerCard);
     pValue.innerHTML = rValu;
     if(rValu>21){
@@ -139,7 +171,7 @@ function playucard() {
         playend();
     }
 }
-
+// BET!!!!!
 function playend() {
     endplay= true;
     document.getElementById('cover').style.display = 'none';
@@ -147,7 +179,7 @@ function playend() {
     document.getElementById('btndeal').style.display = 'block';
     document.getElementById('mybet').disabled = false;
     document.getElementById('maxbet').disabled = false;
-    message.innerHTML = "Game Over";
+    message.innerHTML = "Game Over<br>";
     var payoutJack = 1;
     var dealervalue = checktotal(dealerCard);
     dValue.innerHTML = dealervalue;
@@ -155,7 +187,7 @@ function playend() {
     while(dealervalue <17) {
         dealerCard.push(cards[cardCount]);
         dealerHolder.innerHTML += cardOutput(cardCount,(dealerCard.length -1));
-        cardCount++;
+        redeal();
          dealervalue = checktotal(dealerCard);
          dValue.innerHTML = dealervalue;
     }
@@ -167,8 +199,26 @@ if(playervalue == 21 && playerCard.length == 2) {
 }
     var betvalue = parseInt(document.getElementById('mybet').value)*payoutJack;
 
-    pValue.innerHTML = dealervalue;
-        
+   if((playervalue < 22 && dealervalue < playervalue) || (dealervalue >21 && playervalue <22)) {
+    message.innerHTML += '<span style="color:green";> You WIN! You won $'+betvalue+'</span>';
+    mydollars = mydollars + (betvalue *2);
+   }
+   else if(playervalue >21) {
+    message.innerHTML += '<span style="color: red";> Dealer Wins! you lost $'+betvalue+'</span>';
+    
+   }
+   else if(playervalue == dealervalue) {
+    message.innerHTML += '<span style="color: blue";>PUSH</span>';
+    mydollars = mydollars + betvalue;
+   }
+   else {
+    message.innerHTML += '<span style="color: red";> Dealer Wins! you lost $'+betvalue+'</span>';
+    
+   }
+   
+   
+    pValue.innerHTML = playervalue;
+     dollarValue.innerHTML = mydollars;   
 }
 
 function checktotal(arr) {
@@ -177,12 +227,12 @@ function checktotal(arr) {
     for(var i in arr) {
         if(arr[i].cardnum == 'A' && !aceAdjust){
             aceAdjust= true;
-            rValue= rValue+10;
+            rValue= rValue + 10;
         }
         rValue= rValue+arr[i].cardvalue;
     } 
     if(aceAdjust && rValue >21) {
-        rValue= value-10;
+        rValue= rValue - 10;
     }
     return rValue;
 }

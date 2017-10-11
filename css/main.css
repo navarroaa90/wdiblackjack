@@ -6,6 +6,8 @@ body{
     font-size: 30px;
 }
 
+
+
 #btndeal, #myactions  {
 display: none;
 }
@@ -93,7 +95,7 @@ display: none;
   }
 
   #message {
-      height: 70px;
+      height: 90px;
       font-size: 30px;
       text-align: center;
   }
@@ -107,8 +109,15 @@ display: none;
       background-color: red;
  }
 
+ #mybet {
+    font-size: 30px;
+}
+#betamount {
+    font-size: 30px;
+}
  #maxbet {
      background-color: red;
+     font-size: 15px;
  }
 
  #btndouble {
