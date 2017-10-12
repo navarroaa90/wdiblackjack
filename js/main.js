@@ -131,7 +131,7 @@ function maxbet() {
 }
 
 function cardAction(a) {
-    console.log(a);
+
     switch (a) {
         case 'hit':
             playucard(); // add new card to players hand

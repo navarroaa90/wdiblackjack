@@ -206,7 +206,6 @@ display: none;
  #maxbet {
      background-color: black;
     border: 1px solid red;
-    font-size: 13px;
     font-family: 'Iceland', cursive;
     animation: neon1 .5s ease-in-out infinite alternate;
     font-size: 20px;
@@ -226,7 +225,7 @@ display: none;
     animation: orange .2s ease-in-out infinite alternate;
     cursor: hand;
     font-family: 'Iceland', cursive;
-    font-size: 30px;
+    font-size: 50px;
   
 }
 
