@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,49 +8,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Black Jack</title>
     <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Audiowide|Monoton|Orbitron" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Iceland" rel="stylesheet">
+
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 </head>
-<body >
+
+<body>
     <div>
-        <div><h1>Black Jack</h1>
-            <div id= "message">Press Start!</div>
-            <button id="startbtn" class= "btn" type="button" onclick="startGame()">Start Game</button>
-            </div>
-        <div class= "total"> Total $<span id="dollars">100</span></div>
-        <div id = "betamount">Bet Amount $<input type = "number" id="mybet" value="5" min= "1" max="100"><button id = "maxbet" type="button" onclick="maxbet()" 
-            class="btn">Max Bet</button>
-            <div>
-             <button id="btndeal" type="button" onclick="dealNew()" class="btn">Deal</button>
-             </div>
+        <div>
+            <h1>Black Jack</h1>
+            <center>
+                <div id="message">Press Start!</div>
+                <button id="startbtn" class="btn" type="button" onclick="startGame()">Start Game</button>
         </div>
+        </center>
+        <div class="total"> Total $<span id="dollars">1000</span></div>
+        <div id="betamount">Bet Amount $<input type="number" id="mybet" value="5" min="1" max="100"><button id="maxbet" type="button" onclick="maxbet()"
+                class="btn">Max Bet</button>
+            <center>
+                <div>
+                    <button id="btndeal" type="button" onclick="dealNew()" class="btn">Deal</button>
+                </div>
+            </center>
         </div>
-        </div>
-        
-         <div id= "start">
-        
+    </div>
+    </div>
+
+    <div id="start">
+
         <div id="output">
-      Dealer's Hand: <span id="dValue"></span>
-       <div id="dealerHolder"></div>
-      Player's Hand: <span id="pValue"></span>
-       <div id="playerHolder"></div>
-       <div id="myactions">
-           <button id="btnhold" type="button" onClick="cardAction('hold')" 
-           class="btn">Hold</button>
-           <button id="btnhit" type="button" onClick="cardAction('hit')" 
-           class="btn">Hit</button>
-           <button id="btndouble" type="button" onClick="cardAction('double')" 
-           class="btn">Double</button>
-       </div>
-      
-     </div>
+            <center>Dealer's Hand: <span id="dValue"></span></center>
+            <div id="dealerHolder"></div>
+            <center>Player's Hand: <span id="pValue"></span></center>
+            <div id="playerHolder"></div>
+            <center>
+                <div id="myactions">
+                    <button id="btnhold" type="button" onClick="cardAction('hold')" class="btn">Hold</button>
+                    <button id="btnhit" type="button" onClick="cardAction('hit')" class="btn">Hit</button>
+                    <button id="btndouble" type="button" onClick="cardAction('double')" class="btn">Double</button>
+                </div>
+            </center>
+            <div>
+                <button id="btndeal" type="button" onclick="dealNew()" class="btn">Deal</button>
+            </div>
 
-     <div class "icard">
+        </div>
 
-     </div>
+        <div class "icard">
+
+        </div>
 
     </div>
-     
- <script src="js/main.js"></script>
+
+    <script src="js/main.js"></script>
 </body>
 
 </html>
