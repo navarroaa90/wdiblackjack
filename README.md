@@ -22,7 +22,7 @@
   
   <h2>Getting Started</h2>
   https://navarroaa90.github.io/wdiblackjack/
-  
+  https://trello.com/b/T7JXgGFm/black-jack
   <h2>Future Steps</h2>
   <ul>
     <li> Make the app responsive with other devices<li>
