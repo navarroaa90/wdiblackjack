@@ -85,7 +85,7 @@ function redeal() {
     if (cardCount > 30) {
         shuffleDeck(cards);
         cardCount = 0;
-        message.innerHTML = "New Shuffle";
+
     }
 }
 
