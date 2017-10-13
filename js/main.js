@@ -53,11 +53,9 @@ for (s in suits) {
     }
 }
 
-// Functions
-// random number generator for the deck
 
 
-
+// start of the game!
 function startGame() {
     shuffleDeck(cards);
     dealNew();
@@ -81,7 +79,7 @@ function dealNew() {
     deal();
     document.getElementById('btndeal').style.display = 'none';
 }
-
+// After 30 cards the deck is reshuffled
 function redeal() {
     cardCount++;
     if (cardCount > 30) {
@@ -171,7 +169,8 @@ function playucard() {
         playend();
     }
 }
-// BET!!!!!
+// at the end of the game we compare hands with the player and dealer. With this funciton we disable a few buttons and take off the 
+//cover on the dealers side.
 function playend() {
     endplay = true;
     document.getElementById('cover').style.display = 'none';
@@ -221,6 +220,7 @@ function playend() {
     dollarValue.innerHTML = mydollars;
 }
 
+// ace logic
 function checktotal(arr) {
     var rValue = 0;
     var aceAdjust = false;
@@ -237,7 +237,7 @@ function checktotal(arr) {
     return rValue;
 }
 
-
+// rng
 function shuffleDeck(array) {
     for (var i = array.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
