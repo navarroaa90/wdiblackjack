@@ -21,10 +21,11 @@
   </ul>
   
   <h2>Getting Started</h2>
-  https://navarroaa90.github.io/wdiblackjack/
+  https://navarroaa90.github.io/wdiblackjack/ <br>
   https://trello.com/b/T7JXgGFm/black-jack
+  
   <h2>Future Steps</h2>
-  <ul>
-    <li> Make the app responsive with other devices<li>
-    <li> update buttons to be more responsive<li>
-    </ul>
+<ul>
+<li> Make the game responsive with other devices </li>
+<li> Optimize code and add new features </li>
+</ul>
