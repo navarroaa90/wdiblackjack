@@ -115,7 +115,7 @@ function deal() {
 }
 
 
-
+// position of contents in card
 function cardOutput(n, x) {
     var hpos = (x > 0) ? x * 60 + 100 : 100;
     return '<div class="icard ' + cards[n].icon + '" style="left:' + hpos + 'px;">  <div class="top-card suit">' + cards[n].cardnum + '<br></div>  <div class="content-card suit"></div>  <div class="bottom-card suit">' + cards[n].cardnum +
@@ -127,7 +127,7 @@ function maxbet() {
     document.getElementById('mybet').value = mydollars;
     message.innerHTML = "Bet changed to $" + mydollars;
 }
-
+// functions for buttons
 function cardAction(a) {
 
     switch (a) {
